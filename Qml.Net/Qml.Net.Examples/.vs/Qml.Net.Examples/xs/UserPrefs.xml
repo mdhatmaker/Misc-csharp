@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{556C9821-F289-4B24-95B0-F5EDD1CDA832}|Default">
+  <MonoDevelop.Ide.ItemProperties.Features PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Features/Main.qml">
+    <Files>
+      <File FileName="Features/Main.qml" Line="25" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Qml.Net.Examples" expanded="True">
+            <Node name="Features" expanded="True">
+              <Node name="Main.qml" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

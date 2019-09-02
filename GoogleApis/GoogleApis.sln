@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleApis", "GoogleApis\GoogleApis.csproj", "{A7C652C4-86CB-4EF7-9462-6154271D6936}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibGoogleApi", "LibGoogleApi\LibGoogleApi.csproj", "{70E3F2CB-57A1-45A8-BA37-D8A786809033}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7C652C4-86CB-4EF7-9462-6154271D6936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7C652C4-86CB-4EF7-9462-6154271D6936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7C652C4-86CB-4EF7-9462-6154271D6936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C652C4-86CB-4EF7-9462-6154271D6936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70E3F2CB-57A1-45A8-BA37-D8A786809033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70E3F2CB-57A1-45A8-BA37-D8A786809033}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70E3F2CB-57A1-45A8-BA37-D8A786809033}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70E3F2CB-57A1-45A8-BA37-D8A786809033}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

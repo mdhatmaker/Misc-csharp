@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="**\*.qmlc" />
+    <None Remove="images\**" />
+    <None Remove="pages\**" />
+    <None Remove="Main.qml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Qml.Net" Version="0.10.1" />
+    <PackageReference Include="Qml.Net.LinuxBinaries" Version="0.10.1" />
+    <PackageReference Include="Qml.Net.OSXBinaries" Version="0.10.1" />
+    <PackageReference Include="Qml.Net.WindowsBinaries" Version="0.10.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\**" CopyToOutputDirectory="Always" />
+    <Content Include="pages\**" CopyToOutputDirectory="Always" />
+    <Content Include="Main.qml" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+  <!--<ItemGroup>
+    <Content Include="images\**" CopyToPublishDirectory="Always" />
+    <Content Include="pages\**" CopyToPublishDirectory="Always" />
+    <Content Include="Main.qml" CopyToPublishDirectory="Always" />
+  </ItemGroup>-->
+</Project>

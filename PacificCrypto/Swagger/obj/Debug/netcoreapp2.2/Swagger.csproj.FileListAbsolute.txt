@@ -1,0 +1,9 @@
+/Users/michael/Projects/PacificCrypto/Swagger/bin/Debug/netcoreapp2.2/Swagger.deps.json
+/Users/michael/Projects/PacificCrypto/Swagger/bin/Debug/netcoreapp2.2/Swagger.dll
+/Users/michael/Projects/PacificCrypto/Swagger/bin/Debug/netcoreapp2.2/Swagger.pdb
+/Users/michael/Projects/PacificCrypto/Swagger/obj/Debug/netcoreapp2.2/Swagger.csprojAssemblyReference.cache
+/Users/michael/Projects/PacificCrypto/Swagger/obj/Debug/netcoreapp2.2/Swagger.csproj.CoreCompileInputs.cache
+/Users/michael/Projects/PacificCrypto/Swagger/obj/Debug/netcoreapp2.2/Swagger.AssemblyInfoInputs.cache
+/Users/michael/Projects/PacificCrypto/Swagger/obj/Debug/netcoreapp2.2/Swagger.AssemblyInfo.cs
+/Users/michael/Projects/PacificCrypto/Swagger/obj/Debug/netcoreapp2.2/Swagger.dll
+/Users/michael/Projects/PacificCrypto/Swagger/obj/Debug/netcoreapp2.2/Swagger.pdb

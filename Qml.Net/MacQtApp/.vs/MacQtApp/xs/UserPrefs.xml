@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{BC1AB86E-CF26-4E61-9D16-5F9D775C9234}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MacQtApp/Program.cs">
+    <Files>
+      <File FileName="MacQtApp/Program.cs" Line="44" Column="1" />
+      <File FileName="MacQtApp/Main.qml" Line="65" Column="10" />
+      <File FileName="MacQtApp/YourNetObject.cs" Line="12" Column="8" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MacQtApp" expanded="True">
+            <Node name="MacQtApp" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.MacQtApp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{A7C652C4-86CB-4EF7-9462-6154271D6936}|Default">
+  <MonoDevelop.Ide.ItemProperties.LibGoogleApi FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoogleApis/Program.cs">
+    <Files>
+      <File FileName="GoogleApis/Program.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GoogleApis" expanded="True">
+            <Node name="GoogleApis" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+            <Node name="LibGoogleApi" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.GoogleApis FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

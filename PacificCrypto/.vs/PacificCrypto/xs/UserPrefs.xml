@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{8951A5FA-F569-4624-A13A-881DB29DCA11}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PacificCrypto/Program.cs">
+    <Files>
+      <File FileName="PacificCrypto/Program.cs" Line="162" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="PacificCrypto" expanded="True">
+            <Node name="PacificCrypto" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+            <Node name="Swagger" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.PacificCrypto PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/michael/GitHub/api-connectors/auto-generated/csharp/src/IO.Swagger/Client/ApiClient.cs" line="137" column="1" />
+      <Breakpoint file="/Users/michael/GitHub/api-connectors/auto-generated/csharp/src/IO.Swagger/Client/ApiClient.cs" line="136" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

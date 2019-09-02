@@ -1,0 +1,590 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IO.Swagger.Client</name>
+    </assembly>
+    <members>
+        <member name="T:IO.Swagger.Client.ApiClient">
+            <summary>
+            API client is mainly responsible for making the HTTP call to the API backend.
+            </summary>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:IO.Swagger.Client.ApiClient" /> class
+            with default configuration.
+            </summary>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.#ctor(IO.Swagger.Client.Configuration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IO.Swagger.Client.ApiClient" /> class
+            with default base path (http://my.wanfangdata.com.cn).
+            </summary>
+            <param name="config">An instance of Configuration.</param>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IO.Swagger.Client.ApiClient" /> class
+            with default configuration.
+            </summary>
+            <param name="basePath">The base path.</param>
+        </member>
+        <member name="F:IO.Swagger.Client.ApiClient.Default">
+            <summary>
+            Gets or sets the default API client for making HTTP calls.
+            </summary>
+            <value>The default API client.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.ApiClient.Configuration">
+            <summary>
+            Gets or sets an instance of the IReadableConfiguration.
+            </summary>
+            <value>An instance of the IReadableConfiguration.</value>
+            <remarks>
+            <see cref="T:IO.Swagger.Client.IReadableConfiguration"/> helps us to avoid modifying possibly global
+            configuration values from within a given client. It does not guarantee thread-safety
+            of the <see cref="P:IO.Swagger.Client.ApiClient.Configuration"/> instance in any way.
+            </remarks>
+        </member>
+        <member name="P:IO.Swagger.Client.ApiClient.RestClient">
+            <summary>
+            Gets or sets the RestClient.
+            </summary>
+            <value>An instance of the RestClient</value>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.CallApi(System.String,RestSharp.Method,System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Object,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,RestSharp.FileParameter},System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Makes the HTTP request (Sync).
+            </summary>
+            <param name="path">URL path.</param>
+            <param name="method">HTTP method.</param>
+            <param name="queryParams">Query parameters.</param>
+            <param name="postBody">HTTP body (POST request).</param>
+            <param name="headerParams">Header parameters.</param>
+            <param name="formParams">Form parameters.</param>
+            <param name="fileParams">File parameters.</param>
+            <param name="pathParams">Path parameters.</param>
+            <param name="contentType">Content Type of the request</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.CallApiAsync(System.String,RestSharp.Method,System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Object,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,RestSharp.FileParameter},System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Makes the asynchronous HTTP request.
+            </summary>
+            <param name="path">URL path.</param>
+            <param name="method">HTTP method.</param>
+            <param name="queryParams">Query parameters.</param>
+            <param name="postBody">HTTP body (POST request).</param>
+            <param name="headerParams">Header parameters.</param>
+            <param name="formParams">Form parameters.</param>
+            <param name="fileParams">File parameters.</param>
+            <param name="pathParams">Path parameters.</param>
+            <param name="contentType">Content type.</param>
+            <returns>The Task instance.</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.EscapeString(System.String)">
+            <summary>
+            Escape string (url-encoded).
+            </summary>
+            <param name="str">String to be escaped.</param>
+            <returns>Escaped string.</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.ParameterToFile(System.String,System.IO.Stream)">
+            <summary>
+            Create FileParameter based on Stream.
+            </summary>
+            <param name="name">Parameter name.</param>
+            <param name="stream">Input stream.</param>
+            <returns>FileParameter.</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.ParameterToString(System.Object)">
+            <summary>
+            If parameter is DateTime, output in a formatted string (default ISO 8601), customizable with Configuration.DateTime.
+            If parameter is a list, join the list with ",".
+            Otherwise just return the string.
+            </summary>
+            <param name="obj">The parameter (header, path, query, form).</param>
+            <returns>Formatted string.</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.Deserialize(RestSharp.IRestResponse,System.Type)">
+            <summary>
+            Deserialize the JSON string into a proper object.
+            </summary>
+            <param name="response">The HTTP response.</param>
+            <param name="type">Object type.</param>
+            <returns>Object representation of the JSON string.</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.Serialize(System.Object)">
+            <summary>
+            Serialize an input (model) into JSON string
+            </summary>
+            <param name="obj">Object.</param>
+            <returns>JSON string.</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.IsJsonMime(System.String)">
+             <summary>
+            Check if the given MIME is a JSON MIME.
+            JSON MIME examples:
+                application/json
+                application/json; charset=UTF8
+                APPLICATION/JSON
+                application/vnd.company+json
+             </summary>
+             <param name="mime">MIME</param>
+             <returns>Returns True if MIME type is json.</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.SelectHeaderContentType(System.String[])">
+            <summary>
+            Select the Content-Type header's value from the given content-type array:
+            if JSON type exists in the given array, use it;
+            otherwise use the first one defined in 'consumes'
+            </summary>
+            <param name="contentTypes">The Content-Type array to select from.</param>
+            <returns>The Content-Type header to use.</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.SelectHeaderAccept(System.String[])">
+            <summary>
+            Select the Accept header's value from the given accepts array:
+            if JSON exists in the given array, use it;
+            otherwise use all of them (joining into a string)
+            </summary>
+            <param name="accepts">The accepts array to select from.</param>
+            <returns>The Accept header to use.</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.Base64Encode(System.String)">
+            <summary>
+            Encode string in base64 format.
+            </summary>
+            <param name="text">String to be encoded.</param>
+            <returns>Encoded string.</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.ConvertType(System.Object,System.Type)">
+            <summary>
+            Dynamically cast the object into target type.
+            </summary>
+            <param name="fromObject">Object to be casted</param>
+            <param name="toObject">Target type</param>
+            <returns>Casted object</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.ReadAsBytes(System.IO.Stream)">
+            <summary>
+            Convert stream to byte array
+            </summary>
+            <param name="inputStream">Input stream to be converted</param>
+            <returns>Byte array</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.UrlEncode(System.String)">
+            <summary>
+            URL encode a string
+            Credit/Ref: https://github.com/restsharp/RestSharp/blob/master/RestSharp/Extensions/StringExtensions.cs#L50
+            </summary>
+            <param name="input">String to be URL encoded</param>
+            <returns>Byte array</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.SanitizeFilename(System.String)">
+            <summary>
+            Sanitize filename by removing the path
+            </summary>
+            <param name="filename">Filename</param>
+            <returns>Filename</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.ParameterToKeyValuePairs(System.String,System.String,System.Object)">
+            <summary>
+            Convert params to key/value pairs. 
+            Use collectionFormat to properly format lists and collections.
+            </summary>
+            <param name="name">Key name.</param>
+            <param name="value">Value object.</param>
+            <returns>A list of KeyValuePairs</returns>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiClient.IsCollection(System.Object)">
+            <summary>
+            Check if generic object is a collection.
+            </summary>
+            <param name="value"></param>
+            <returns>True if object is a collection type</returns>
+        </member>
+        <member name="T:IO.Swagger.Client.ApiException">
+            <summary>
+            API Exception
+            </summary>
+        </member>
+        <member name="P:IO.Swagger.Client.ApiException.ErrorCode">
+            <summary>
+            Gets or sets the error code (HTTP status code)
+            </summary>
+            <value>The error code (HTTP status code).</value>
+        </member>
+        <member name="P:IO.Swagger.Client.ApiException.ErrorContent">
+            <summary>
+            Gets or sets the error content (body json object)
+            </summary>
+            <value>The error content (Http response body).</value>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:IO.Swagger.Client.ApiException"/> class.
+            </summary>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiException.#ctor(System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IO.Swagger.Client.ApiException"/> class.
+            </summary>
+            <param name="errorCode">HTTP status code.</param>
+            <param name="message">Error message.</param>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiException.#ctor(System.Int32,System.String,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IO.Swagger.Client.ApiException"/> class.
+            </summary>
+            <param name="errorCode">HTTP status code.</param>
+            <param name="message">Error message.</param>
+            <param name="errorContent">Error content.</param>
+        </member>
+        <member name="T:IO.Swagger.Client.ApiResponse`1">
+            <summary>
+            API Response
+            </summary>
+        </member>
+        <member name="P:IO.Swagger.Client.ApiResponse`1.StatusCode">
+            <summary>
+            Gets or sets the status code (HTTP status code)
+            </summary>
+            <value>The status code.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.ApiResponse`1.Headers">
+            <summary>
+            Gets or sets the HTTP headers
+            </summary>
+            <value>HTTP headers</value>
+        </member>
+        <member name="P:IO.Swagger.Client.ApiResponse`1.Data">
+            <summary>
+            Gets or sets the data (parsed HTTP body)
+            </summary>
+            <value>The data.</value>
+        </member>
+        <member name="M:IO.Swagger.Client.ApiResponse`1.#ctor(System.Int32,System.Collections.Generic.IDictionary{System.String,System.String},`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IO.Swagger.Client.ApiResponse`1" /> class.
+            </summary>
+            <param name="statusCode">HTTP status code.</param>
+            <param name="headers">HTTP headers.</param>
+            <param name="data">Data (parsed HTTP body)</param>
+        </member>
+        <member name="T:IO.Swagger.Client.Configuration">
+            <summary>
+            Represents a set of configuration settings
+            </summary>
+        </member>
+        <member name="F:IO.Swagger.Client.Configuration.Version">
+            <summary>
+            Version of the package.
+            </summary>
+            <value>Version of the package.</value>
+        </member>
+        <member name="F:IO.Swagger.Client.Configuration.ISO8601_DATETIME_FORMAT">
+            <summary>
+            Identifier for ISO 8601 DateTime Format
+            </summary>
+            <remarks>See https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8 for more information.</remarks>
+        </member>
+        <member name="F:IO.Swagger.Client.Configuration.DefaultExceptionFactory">
+            <summary>
+            Default creation of exceptions for a given method name and response object
+            </summary>
+        </member>
+        <member name="P:IO.Swagger.Client.Configuration.Default">
+            <summary>
+            Gets or sets the default Configuration.
+            </summary>
+            <value>Configuration.</value>
+        </member>
+        <member name="F:IO.Swagger.Client.Configuration._apiKey">
+            <summary>
+            Gets or sets the API key based on the authentication name.
+            </summary>
+            <value>The API key.</value>
+        </member>
+        <member name="F:IO.Swagger.Client.Configuration._apiKeyPrefix">
+            <summary>
+            Gets or sets the prefix (e.g. Token) of the API key based on the authentication name.
+            </summary>
+            <value>The prefix of the API key.</value>
+        </member>
+        <member name="M:IO.Swagger.Client.Configuration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:IO.Swagger.Client.Configuration" /> class
+            </summary>
+        </member>
+        <member name="M:IO.Swagger.Client.Configuration.#ctor(System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.String},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IO.Swagger.Client.Configuration" /> class
+            </summary>
+        </member>
+        <member name="M:IO.Swagger.Client.Configuration.#ctor(IO.Swagger.Client.ApiClient,System.Collections.Generic.IDictionary{System.String,System.String},System.String,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.String},System.String,System.String,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IO.Swagger.Client.Configuration" /> class with different settings
+            </summary>
+            <param name="apiClient">Api client</param>
+            <param name="defaultHeader">Dictionary of default HTTP header</param>
+            <param name="username">Username</param>
+            <param name="password">Password</param>
+            <param name="accessToken">accessToken</param>
+            <param name="apiKey">Dictionary of API key</param>
+            <param name="apiKeyPrefix">Dictionary of API key prefix</param>
+            <param name="tempFolderPath">Temp folder path</param>
+            <param name="dateTimeFormat">DateTime format string</param>
+            <param name="timeout">HTTP connection timeout (in milliseconds)</param>
+            <param name="userAgent">HTTP user agent</param>
+        </member>
+        <member name="M:IO.Swagger.Client.Configuration.#ctor(IO.Swagger.Client.ApiClient)">
+            <summary>
+            Initializes a new instance of the Configuration class.
+            </summary>
+            <param name="apiClient">Api client.</param>
+        </member>
+        <member name="P:IO.Swagger.Client.Configuration.ApiClient">
+            <summary>
+            Gets an instance of an ApiClient for this configuration
+            </summary>
+        </member>
+        <member name="P:IO.Swagger.Client.Configuration.BasePath">
+            <summary>
+            Gets or sets the base path for API access.
+            </summary>
+        </member>
+        <member name="P:IO.Swagger.Client.Configuration.DefaultHeader">
+            <summary>
+            Gets or sets the default header.
+            </summary>
+        </member>
+        <member name="P:IO.Swagger.Client.Configuration.Timeout">
+            <summary>
+            Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
+            </summary>
+        </member>
+        <member name="P:IO.Swagger.Client.Configuration.UserAgent">
+            <summary>
+            Gets or sets the HTTP user agent.
+            </summary>
+            <value>Http user agent.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.Configuration.Username">
+            <summary>
+            Gets or sets the username (HTTP basic authentication).
+            </summary>
+            <value>The username.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.Configuration.Password">
+            <summary>
+            Gets or sets the password (HTTP basic authentication).
+            </summary>
+            <value>The password.</value>
+        </member>
+        <member name="M:IO.Swagger.Client.Configuration.GetApiKeyWithPrefix(System.String)">
+            <summary>
+            Gets the API key with prefix.
+            </summary>
+            <param name="apiKeyIdentifier">API key identifier (authentication scheme).</param>
+            <returns>API key with prefix.</returns>
+        </member>
+        <member name="P:IO.Swagger.Client.Configuration.AccessToken">
+            <summary>
+            Gets or sets the access token for OAuth2 authentication.
+            </summary>
+            <value>The access token.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.Configuration.TempFolderPath">
+            <summary>
+            Gets or sets the temporary folder path to store the files downloaded from the server.
+            </summary>
+            <value>Folder path.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.Configuration.DateTimeFormat">
+            <summary>
+            Gets or sets the the date time format used when serializing in the ApiClient
+            By default, it's set to ISO 8601 - "o", for others see:
+            https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx
+            and https://msdn.microsoft.com/en-us/library/8kb3ddd4(v=vs.110).aspx
+            No validation is done to ensure that the string you're providing is valid
+            </summary>
+            <value>The DateTimeFormat string</value>
+        </member>
+        <member name="P:IO.Swagger.Client.Configuration.ApiKeyPrefix">
+            <summary>
+            Gets or sets the prefix (e.g. Token) of the API key based on the authentication name.
+            </summary>
+            <value>The prefix of the API key.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.Configuration.ApiKey">
+            <summary>
+            Gets or sets the API key based on the authentication name.
+            </summary>
+            <value>The API key.</value>
+        </member>
+        <member name="M:IO.Swagger.Client.Configuration.AddDefaultHeader(System.String,System.String)">
+            <summary>
+            Add default header.
+            </summary>
+            <param name="key">Header field name.</param>
+            <param name="value">Header field value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IO.Swagger.Client.Configuration.CreateApiClient">
+            <summary>
+            Creates a new <see cref="P:IO.Swagger.Client.Configuration.ApiClient" /> based on this <see cref="T:IO.Swagger.Client.Configuration" /> instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IO.Swagger.Client.Configuration.ToDebugReport">
+            <summary>
+            Returns a string with essential information for debugging.
+            </summary>
+        </member>
+        <member name="M:IO.Swagger.Client.Configuration.AddApiKey(System.String,System.String)">
+            <summary>
+            Add Api Key Header.
+            </summary>
+            <param name="key">Api Key name.</param>
+            <param name="value">Api Key value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IO.Swagger.Client.Configuration.AddApiKeyPrefix(System.String,System.String)">
+            <summary>
+            Sets the API key prefix.
+            </summary>
+            <param name="key">Api Key name.</param>
+            <param name="value">Api Key value.</param>
+        </member>
+        <member name="T:IO.Swagger.Client.ExceptionFactory">
+            <summary>
+            A delegate to ExceptionFactory method
+            </summary>
+            <param name="methodName">Method name</param>
+            <param name="response">Response</param>
+            <returns>Exceptions</returns>
+        </member>
+        <member name="T:IO.Swagger.Client.GlobalConfiguration">
+            <summary>
+            <see cref="T:IO.Swagger.Client.GlobalConfiguration"/> provides a compile-time extension point for globally configuring
+            API Clients.
+            </summary>
+            <remarks>
+            A customized implementation via partial class may reside in another file and may
+            be excluded from automatic generation via a .swagger-codegen-ignore file.
+            </remarks>
+        </member>
+        <member name="T:IO.Swagger.Client.IApiAccessor">
+            <summary>
+            Represents configuration aspects required to interact with the API endpoints.
+            </summary>
+        </member>
+        <member name="P:IO.Swagger.Client.IApiAccessor.Configuration">
+            <summary>
+            Gets or sets the configuration object
+            </summary>
+            <value>An instance of the Configuration</value>
+        </member>
+        <member name="M:IO.Swagger.Client.IApiAccessor.GetBasePath">
+            <summary>
+            Gets the base path of the API client.
+            </summary>
+            <value>The base path</value>
+        </member>
+        <member name="P:IO.Swagger.Client.IApiAccessor.ExceptionFactory">
+            <summary>
+            Provides a factory method hook for the creation of exceptions.
+            </summary>
+        </member>
+        <member name="T:IO.Swagger.Client.IReadableConfiguration">
+            <summary>
+            Represents a readable-only configuration contract.
+            </summary>
+        </member>
+        <member name="P:IO.Swagger.Client.IReadableConfiguration.AccessToken">
+            <summary>
+            Gets the access token.
+            </summary>
+            <value>Access token.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.IReadableConfiguration.ApiKey">
+            <summary>
+            Gets the API key.
+            </summary>
+            <value>API key.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.IReadableConfiguration.ApiKeyPrefix">
+            <summary>
+            Gets the API key prefix.
+            </summary>
+            <value>API key prefix.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.IReadableConfiguration.BasePath">
+            <summary>
+            Gets the base path.
+            </summary>
+            <value>Base path.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.IReadableConfiguration.DateTimeFormat">
+            <summary>
+            Gets the date time format.
+            </summary>
+            <value>Date time foramt.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.IReadableConfiguration.DefaultHeader">
+            <summary>
+            Gets the default header.
+            </summary>
+            <value>Default header.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.IReadableConfiguration.TempFolderPath">
+            <summary>
+            Gets the temp folder path.
+            </summary>
+            <value>Temp folder path.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.IReadableConfiguration.Timeout">
+            <summary>
+            Gets the HTTP connection timeout (in milliseconds)
+            </summary>
+            <value>HTTP connection timeout.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.IReadableConfiguration.UserAgent">
+            <summary>
+            Gets the user agent.
+            </summary>
+            <value>User agent.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.IReadableConfiguration.Username">
+            <summary>
+            Gets the username.
+            </summary>
+            <value>Username.</value>
+        </member>
+        <member name="P:IO.Swagger.Client.IReadableConfiguration.Password">
+            <summary>
+            Gets the password.
+            </summary>
+            <value>Password.</value>
+        </member>
+        <member name="M:IO.Swagger.Client.IReadableConfiguration.GetApiKeyWithPrefix(System.String)">
+            <summary>
+            Gets the API key with prefix.
+            </summary>
+            <param name="apiKeyIdentifier">API key identifier (authentication scheme).</param>
+            <returns>API key with prefix.</returns>
+        </member>
+        <member name="T:IO.Swagger.Client.SwaggerDateConverter">
+            <summary>
+            Formatter for 'date' swagger formats ss defined by full-date - RFC3339
+            see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types
+            </summary>
+        </member>
+        <member name="M:IO.Swagger.Client.SwaggerDateConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:IO.Swagger.Client.SwaggerDateConverter" /> class.
+            </summary>
+        </member>
+    </members>
+</doc>
