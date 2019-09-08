@@ -1,0 +1,11 @@
+D:\Git\Misc-csharp\TradingAlgoFilters\TradingAlgoFilters\obj\Debug\netcoreapp2.2\TradingAlgoFilters.csproj.CoreCompileInputs.cache
+D:\Git\Misc-csharp\TradingAlgoFilters\TradingAlgoFilters\obj\Debug\netcoreapp2.2\TradingAlgoFilters.AssemblyInfoInputs.cache
+D:\Git\Misc-csharp\TradingAlgoFilters\TradingAlgoFilters\obj\Debug\netcoreapp2.2\TradingAlgoFilters.AssemblyInfo.cs
+D:\Git\Misc-csharp\TradingAlgoFilters\TradingAlgoFilters\bin\Debug\netcoreapp2.2\TradingAlgoFilters.deps.json
+D:\Git\Misc-csharp\TradingAlgoFilters\TradingAlgoFilters\bin\Debug\netcoreapp2.2\TradingAlgoFilters.runtimeconfig.json
+D:\Git\Misc-csharp\TradingAlgoFilters\TradingAlgoFilters\bin\Debug\netcoreapp2.2\TradingAlgoFilters.runtimeconfig.dev.json
+D:\Git\Misc-csharp\TradingAlgoFilters\TradingAlgoFilters\bin\Debug\netcoreapp2.2\TradingAlgoFilters.dll
+D:\Git\Misc-csharp\TradingAlgoFilters\TradingAlgoFilters\bin\Debug\netcoreapp2.2\TradingAlgoFilters.pdb
+D:\Git\Misc-csharp\TradingAlgoFilters\TradingAlgoFilters\obj\Debug\netcoreapp2.2\TradingAlgoFilters.dll
+D:\Git\Misc-csharp\TradingAlgoFilters\TradingAlgoFilters\obj\Debug\netcoreapp2.2\TradingAlgoFilters.pdb
+D:\Git\Misc-csharp\TradingAlgoFilters\TradingAlgoFilters\obj\Debug\netcoreapp2.2\TradingAlgoFilters.csprojAssemblyReference.cache
