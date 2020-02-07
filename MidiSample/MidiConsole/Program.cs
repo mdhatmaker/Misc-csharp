@@ -33,8 +33,16 @@ namespace MidiConsole
             string midiFolder = Path.GetDirectoryName(path);
             Console.WriteLine("'{0}'  '{1}'", midiFolder, filename);
 
-            var midi = new Midi();
-            midi.PlayMidi(filename, midiFolder);
+            string pathname = Path.Combine(midiFolder, filename);
+            if (File.Exists(pathname))
+            {
+                var midi = new Midi();
+                midi.PlayMidi(filename, midiFolder);
+            }
+            else
+            {
+                Console.WriteLine("File not found: '{0}'", pathname);
+            }
 
             //Console.Write("Press any key ... ");
             //Console.ReadLine();
