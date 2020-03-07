@@ -1,0 +1,11 @@
+<Project>
+    <Import Project="version.props" />
+    <PropertyGroup>
+        <Authors>Paul Knopf</Authors>
+        <Description>A cross-platform QML/.NET integration for Mono/.NET/.NET Core</Description>
+        <Copyright>2018</Copyright>
+        <PackageLicenseUrl>https://github.com/qmlnet/qmlnet/blob/master/LICENSE</PackageLicenseUrl>
+        <PackageProjectUrl>https://qmlnet.github.io/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/qmlnet/qmlnet</RepositoryUrl>
+    </PropertyGroup>
+</Project>

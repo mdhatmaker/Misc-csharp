@@ -1,0 +1,6 @@
+
+output/
+samples/PhotoFrame/\.vscode/ 
+samples/PhotoFrame/\.idea/ 
+build/Qt/
+build/qtci/

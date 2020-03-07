@@ -1,0 +1,17 @@
+language: csharp
+mono: none
+matrix:
+  include:
+    - name: "Linux Qt 5.12.0"
+      dotnet: 2.2
+      os: linux
+      dist: xenial
+    - name: "OSX Qt 5.12.0"
+      dotnet: 2.2.101
+      os: osx
+      osx_image: xcode9.4
+if: tag IS blank
+git:
+  depth: false
+script:
+  - ./build/travis.sh
