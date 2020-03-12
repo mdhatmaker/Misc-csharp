@@ -124,38 +124,82 @@ namespace Google.Apis.YouTube.Samples
                 ApplicationName = this.GetType().ToString()
             });
 
+            // To view your external IP:
+            // https://canyouseeme.org/
+
+            // https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true&key=AIzaSyBTPjT-lnKHFcBW-dJEN8Yhp8jg4UJAcJQ
+            // https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=WL&key=AIzaSyBTPjT-lnKHFcBW-dJEN8Yhp8jg4UJAcJQ
+
+            var channelsListRequest = youtubeService.Channels.List("contentDetails");
+            //channelsListRequest.ForUsername = "CurbsideExit";
+            channelsListRequest.Mine = true;
+            channelsListRequest.Key = "AIzaSyBTPjT-lnKHFcBW-dJEN8Yhp8jg4UJAcJQ";
+
+            // Retrieve the contentDetails part of the channel resource for the authenticated user's channel.
+            var channelsListResponse = await channelsListRequest.ExecuteAsync();
+
+            foreach (var channel in channelsListResponse.Items)
+            {
+                // From the API response, extract the playlist ID that identifies the list
+                // of videos uploaded to the authenticated user's channel.
+                //var uploadsListId = channel.ContentDetails.RelatedPlaylists.Uploads;
+                var uploadsListId = channel.ContentDetails.RelatedPlaylists.WatchLater;
+
+                Console.WriteLine("Videos in list {0}", uploadsListId);
+
+                var pageToken = "";
+                while (pageToken != null)
+                {
+                    var playlistItemsListRequest = youtubeService.PlaylistItems.List("snippet");
+                    playlistItemsListRequest.PlaylistId = uploadsListId;
+                    playlistItemsListRequest.MaxResults = 50;
+                    playlistItemsListRequest.PageToken = pageToken;
+
+                    // Retrieve the list of videos uploaded to the authenticated user's channel.
+                    var playlistItemsListResponse = await playlistItemsListRequest.ExecuteAsync();
+
+                    foreach (var playlistItem in playlistItemsListResponse.Items)
+                    {
+                        // Print information about each video.
+                        Console.WriteLine("{0} ({1})", playlistItem.Snippet.Title, playlistItem.Snippet.ResourceId.VideoId);
+                    }
+
+                    pageToken = playlistItemsListResponse.NextPageToken;
+                }
+            }
+
             //---------------------------- FUNCTIONS ----------------------------------
-            Func<string,int,IList<Playlist>> getPlaylists = (channelId,maxResults) =>
-              {
-                  var playlistListRequest = youtubeService.Playlists.List("snippet,contentDetails");
-                  playlistListRequest.ChannelId = channelId;
-                  playlistListRequest.MaxResults = maxResults;
+            Func<string, int, IList<Playlist>> getPlaylists = (channelId, maxResults) =>
+                {
+                    var playlistListRequest = youtubeService.Playlists.List("snippet,contentDetails");
+                    playlistListRequest.ChannelId = channelId;
+                    playlistListRequest.MaxResults = maxResults;
                   //playlistListRequest.Mine = true;
 
                   // Retrieve the snippet and contentDetails parts of the Playlists resource for the given ChannelId.
                   var playlistListResponse = playlistListRequest.Execute();   //= await playlistListRequest.ExecuteAsync();
 
                   return playlistListResponse.Items;
-              };
+                };
 
-            Func<string,int,IList<PlaylistItem>> getPlaylistItems = (playlistId,maxResults) =>
-              {
-                  List<PlaylistItem> items = new List<PlaylistItem>();
-                  string nextPageToken = "";
-                  while (nextPageToken != null)
-                  {
-                      var playlistRequest = youtubeService.PlaylistItems.List("snippet,contentDetails");
-                      playlistRequest.PlaylistId = playlistId;
-                      playlistRequest.MaxResults = maxResults;
-                      playlistRequest.PageToken = nextPageToken;
+            Func<string, int, IList<PlaylistItem>> getPlaylistItems = (playlistId, maxResults) =>
+                {
+                    List<PlaylistItem> items = new List<PlaylistItem>();
+                    string nextPageToken = "";
+                    while (nextPageToken != null)
+                    {
+                        var playlistRequest = youtubeService.PlaylistItems.List("snippet,contentDetails");
+                        playlistRequest.PlaylistId = playlistId;
+                        playlistRequest.MaxResults = maxResults;
+                        playlistRequest.PageToken = nextPageToken;
 
-                      var playlistResponse = playlistRequest.Execute(); //= await playlistRequest.ExecuteAsync();
+                        var playlistResponse = playlistRequest.Execute(); //= await playlistRequest.ExecuteAsync();
 
                       items.AddRange(playlistResponse.Items);
-                      nextPageToken = playlistResponse.NextPageToken;
-                  }
-                  return items;
-              };
+                        nextPageToken = playlistResponse.NextPageToken;
+                    }
+                    return items;
+                };
 
             Func<IList<Playlist>, string, int> printPlaylists = (playlists, append) =>
               {
@@ -216,45 +260,10 @@ namespace Google.Apis.YouTube.Samples
 
 
             //return;
-            
 
-            var channelsListRequest = youtubeService.Channels.List("contentDetails");
-            channelsListRequest.ForUsername = "CurbsideExit";
-            //channelsListRequest.Mine = true;
-
-            // Retrieve the contentDetails part of the channel resource for the authenticated user's channel.
-            var channelsListResponse = await channelsListRequest.ExecuteAsync();
-
-            foreach (var channel in channelsListResponse.Items)
-            {
-                // From the API response, extract the playlist ID that identifies the list
-                // of videos uploaded to the authenticated user's channel.
-                //var uploadsListId = channel.ContentDetails.RelatedPlaylists.Uploads;
-                var uploadsListId = channel.ContentDetails.RelatedPlaylists.WatchLater;
-
-                Console.WriteLine("Videos in list {0}", uploadsListId);
-
-                var pageToken = "";
-                while (pageToken != null)
-                {
-                    var playlistItemsListRequest = youtubeService.PlaylistItems.List("snippet");
-                    playlistItemsListRequest.PlaylistId = uploadsListId;
-                    playlistItemsListRequest.MaxResults = 50;
-                    playlistItemsListRequest.PageToken = pageToken;
-
-                    // Retrieve the list of videos uploaded to the authenticated user's channel.
-                    var playlistItemsListResponse = await playlistItemsListRequest.ExecuteAsync();
-
-                    foreach (var playlistItem in playlistItemsListResponse.Items)
-                    {
-                        // Print information about each video.
-                        Console.WriteLine("{0} ({1})", playlistItem.Snippet.Title, playlistItem.Snippet.ResourceId.VideoId);
-                    }
-
-                    pageToken = playlistItemsListResponse.NextPageToken;
-                }
-            }
         }
+        
+
     } // end of class
 
     // This is no longer needed, because List<T> (not IList<T>) already has an AddRange method
