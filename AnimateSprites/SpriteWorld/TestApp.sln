@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp.csproj", "{F2A90A07-7656-438D-9FF6-D2B2C97DFCFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpriteCanvas", "SpriteCanvas\SpriteCanvas.csproj", "{2E76EE7A-85C6-40CE-9CF6-EAC7026FC3C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpriteWorld", "SpriteWorld\SpriteWorld.csproj", "{A4C46C30-912E-4FBB-A1DC-C847158A9AEE}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+		{F2A90A07-7656-438D-9FF6-D2B2C97DFCFB}.0 = {2E76EE7A-85C6-40CE-9CF6-EAC7026FC3C1}
+		{F2A90A07-7656-438D-9FF6-D2B2C97DFCFB}.1 = {2E76EE7A-85C6-40CE-9CF6-EAC7026FC3C1}
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{F2A90A07-7656-438D-9FF6-D2B2C97DFCFB}.Debug.ActiveCfg = Debug|.NET
+		{F2A90A07-7656-438D-9FF6-D2B2C97DFCFB}.Debug.Build.0 = Debug|.NET
+		{F2A90A07-7656-438D-9FF6-D2B2C97DFCFB}.Release.ActiveCfg = Release|.NET
+		{F2A90A07-7656-438D-9FF6-D2B2C97DFCFB}.Release.Build.0 = Release|.NET
+		{2E76EE7A-85C6-40CE-9CF6-EAC7026FC3C1}.Debug.ActiveCfg = Debug|.NET
+		{2E76EE7A-85C6-40CE-9CF6-EAC7026FC3C1}.Debug.Build.0 = Debug|.NET
+		{2E76EE7A-85C6-40CE-9CF6-EAC7026FC3C1}.Release.ActiveCfg = Release|.NET
+		{2E76EE7A-85C6-40CE-9CF6-EAC7026FC3C1}.Release.Build.0 = Release|.NET
+		{A4C46C30-912E-4FBB-A1DC-C847158A9AEE}.Debug.ActiveCfg = Debug|.NET
+		{A4C46C30-912E-4FBB-A1DC-C847158A9AEE}.Debug.Build.0 = Debug|.NET
+		{A4C46C30-912E-4FBB-A1DC-C847158A9AEE}.Release.ActiveCfg = Release|.NET
+		{A4C46C30-912E-4FBB-A1DC-C847158A9AEE}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
